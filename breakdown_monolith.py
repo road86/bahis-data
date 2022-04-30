@@ -2,7 +2,7 @@ import pandas as pd
 import json
 
 #formadata table from static BAHIS (aka V1) database
-static = pd.read_csv('static.csv')
+static = pd.read_csv('input/static.csv')
 
 #column 'form_name' says which form data given row contains
 for fm in static['form_name'].unique():
@@ -22,4 +22,4 @@ for fm in static['form_name'].unique():
                    ], ignore_index=True)
 
     fm = fm.replace(' ','_')
-    f2.to_csv(f'formdata_{fm}.csv')
+    f2.to_csv(f'output/formdata_{fm}.csv')
