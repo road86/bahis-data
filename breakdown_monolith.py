@@ -6,6 +6,7 @@ static = pd.read_csv('input/static.csv')
 
 #column 'form_name' says which form data given row contains
 for fm in static['form_name'].unique():
+    print(f'Processing {fm}')
     f1 = static[static['form_name']==fm]
 
     #create an empty dataframe for form named {fm}
@@ -17,7 +18,7 @@ for fm in static['form_name'].unique():
     #fill in data stored in json in column {datajson}
     for row, val in f1.iterrows():
         newrow = json.loads(val['datajson'])
-        pd.concat([f2,
+        f2 = pd.concat([f2,
                    pd.DataFrame.from_dict(newrow,orient='index').transpose()
                    ], ignore_index=True)
 
