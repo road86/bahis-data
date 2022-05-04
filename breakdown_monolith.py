@@ -9,8 +9,8 @@ nodata=len(static)
 rowif = 0
 for fm in static['form_name'].unique():
     print(f'Processing {fm}')
-    if fm!='Farm Assessment Monitoring':
-        continue
+    # if fm!='Farm Assessment Monitoring':
+    #     continue
 
     f1 = static[static['form_name']==fm]
 
