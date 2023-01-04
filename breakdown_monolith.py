@@ -21,14 +21,12 @@ for fm in static['form_name'].unique():
         break
 
     #fill in data stored in json in column {datajson}
+    #create a list of json values
+    jlist = []
     for row, val in f1.iterrows():
-        newrow = json.loads(val['datajson'])
-        f2 = pd.concat([f2,
-                   pd.DataFrame.from_dict(newrow,orient='index').transpose()
-                   ], ignore_index=True)
-        perc = rowif/nodata
-        print(f'{rowif} of {nodata}, {perc:0.2f}')
-        rowif = rowif + 1
+        jlist.append(json.loads(val['datajson']))
+
+    f2 = pd.json_normalize(jlist)
 
     fm = fm.replace(' ','_')
     f2.to_csv(f'output/formdata_{fm}.csv')
