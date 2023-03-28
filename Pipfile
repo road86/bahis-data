@@ -7,6 +7,7 @@ name = "pypi"
 pandas = "*"
 numpy = "*"
 sqlalchemy = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
