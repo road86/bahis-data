@@ -12,30 +12,30 @@ You will notice however that it is not possible to find out what different index
 ###  Install python 3.10 or later versions
 Install the required dependency for adding custom PPAs.
 
-'sudo apt install software-properties-common -y'
+`sudo apt install software-properties-common -y`
 
 Then proceed and add the deadsnakes PPA to the APT package manager sources list as below.
 
-'sudo add-apt-repository ppa:deadsnakes/ppa'
+`sudo add-apt-repository ppa:deadsnakes/ppa`
 
 Press Enter to continue.
 With the deadsnakes repository added to your Ubuntu 20.04|18.04 system, now download Python 3.10 with the single command below.
 
-'sudo apt install python3.10'
+`sudo apt install python3.10`
 
 Verify the installation by checking the installed version.
 
-'python3.10 --version'
+`python3.10 --version`
 
 ###  Install pipenv
 Run the following command to install pipenv
 
-'sudo apt install pipenv'
+`sudo apt install pipenv`
 
 
 ###  Use pipenv shell to activate the environment
 Go inside the bahis-data directory and run the following command to activate the environment to install the required modules
 
-'pipenv shell'
+`pipenv shell`
 
 
