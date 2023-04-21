@@ -1,0 +1,7 @@
+set -e
+sudo -u postgres psql -f init.sql
+cd ../input
+# copying on local network from weasel
+rsync --append --partial -chvP -e "ssh" mix@192.168.0.7:/home/habis/coredb_bup.tar.gz .
+tar xf coredb_bup.tar.gz
+sudo -u postgres psql -f coredb_bup.sql
