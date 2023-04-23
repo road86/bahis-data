@@ -24,7 +24,12 @@ bahis_connections = sqlalchemy.create_engine(url=myBahisDB, echo=True)
 conn = bahis_connections.connect()
 
 # table named 'contacts' will be returned as a dataframe.
-save_tables = ['bahis_species_table','bahis_diagnosis_table','bahis_diagnosis_table','bahis_patient_registrydyncsv_live_table']
+save_tables = ['bahis_species_table',
+               'bahis_diagnosis_table',
+               'bahis_diagnosis_table',
+               'bahis_patient_registrydyncsv_live_table',
+               'geo_cluster']
+
 for s_table in save_tables:
     s_dat = pd.read_sql_table(s_table, bahis_connections, schema='core')
     s_dat.to_csv(f'output/newbahis_{s_table}.csv', index=False)
