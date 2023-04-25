@@ -38,4 +38,3 @@ Go inside the bahis-data directory and run the following command to activate the
 
 `pipenv shell`
 
-
