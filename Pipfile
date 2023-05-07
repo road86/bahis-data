@@ -4,11 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-sqlalchemy = "*"
 psycopg2 = "*"
-pandas = "*"
 ipython = "*"
 shapely = "*"
+pandas = "1.5.3"
+numpy = "1.24.2"
+sqlalchemy = "2.0.8"
+psycopg2-binary = "2.9.5"
+loguru = "0.6.0"
 
 [dev-packages]
 

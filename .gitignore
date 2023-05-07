@@ -2,3 +2,4 @@ input/
 output/
 .DS_Store
 bahis_creds_file.cnf
+.Rhistory
