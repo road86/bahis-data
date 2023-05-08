@@ -1,4 +1,5 @@
 set -e
+date
 sudo -u postgres psql -f init.sql
 cd ../input
 # copying on local network from weasel
