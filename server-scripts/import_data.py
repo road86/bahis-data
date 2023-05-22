@@ -7,6 +7,8 @@ import psycopg2
 import shutil
 
 
+os.makedirs('output',exist_ok=True)
+
 bahis_config = configparser.ConfigParser()
 bahis_config.read('bahis_creds_file.cnf')
 which_db = 'bahis_credentials'
