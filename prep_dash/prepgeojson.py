@@ -6,7 +6,7 @@ Created on Thu Mar  2 14:16:22 2023
 """
 
 import pandas as pd
-import json, glob
+import json, glob, os
 from shapely.geometry import shape, Point
 
 #debug
@@ -18,13 +18,17 @@ from shapely.geometry import shape, Point
 # path1= "C:/Users/yoshka/Documents/GitHub/bahis-dash/geodata/geoBoundaries-BGD-ADM1_simplified.geojson"
 # divdata = "C:/Users/yoshka/Documents/GitHub/bahis-dash/geodata/divdata.geojson"
 
+geodata_dir = "geodata" #input
+processed_geodata_dir = os.path.join("output", "processed_geodata")
+os.makedirs(processed_geodata_dir,exist_ok=True)
+
 geofilename = glob.glob('output/newbahis_geo_cluster*.csv')[-1]   # the available geodata from the bahis project
-path3= "geodata/geoBoundaries-BGD-ADM3_simplified.geojson" #495 Upazila
-upadata = "geodata/upadata.geojson"
-path2= "geodata/geoBoundaries-BGD-ADM2_simplified.geojson"
-distdata = "geodata/distdata.geojson"
-path1= "geodata/geoBoundaries-BGD-ADM1_simplified.geojson"
-divdata = "geodata/divdata.geojson"
+path3= os.path.join(geodata_dir,"geoBoundaries-BGD-ADM3_simplified.geojson") #495 Upazila
+path2= os.path.join(geodata_dir,"geoBoundaries-BGD-ADM2_simplified.geojson")
+path1= os.path.join(geodata_dir,"geoBoundaries-BGD-ADM1_simplified.geojson")
+upadata = os.path.join(processed_geodata_dir,"upadata.geojson")
+distdata = os.path.join(processed_geodata_dir,"distdata.geojson")
+divdata = os.path.join(processed_geodata_dir,"divdata.geojson")
 
 geodata = pd.read_csv(geofilename)
 geodata = geodata.drop(geodata[(geodata['loc_type']==1) | (geodata['loc_type']==2) | (geodata['loc_type']==4) | (geodata['loc_type']==5)].index)

@@ -3,7 +3,7 @@ import datetime as dt
 import os, json, glob
 
 sourcepath = './output/'
-
+os.makedirs(sourcepath,exist_ok=True)
 sourcefilename =glob.glob(os.path.join(sourcepath, 'newbahis_bahis_patient_registrydyncsv_live_table*.csv'))[-1]
 bahis_sourcedata = pd.read_csv(sourcefilename, low_memory=False)
 
