@@ -1,6 +1,7 @@
 set -e
 date
-pkill -f index.py #we are killing the dashboar to be able to perform data processing withoug running out of memory
+#we are killing the dashboard to be able to perform data processing withoug running out of memory
+pkill -f index.py
 sudo -u postgres psql -f init.sql
 cd ../input
 # copying on local network from weasel

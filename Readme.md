@@ -19,6 +19,11 @@ Go inside the bahis-data directory and run the following command to activate the
 
 in order to use correctly server scripts, clone the repository to `/bahis-data` and create a directory `/bahis-data/.venv` so the virtual environment is available in the predictable location for cron jobs.
 
+The following is a cronjob to run:
+```
+0 23 * * * cd /bahis-data/server-scripts/ && sh otter-nightly.sh >> log.txt
+```
+
 ## Running pre-processing and downloading
 ```
 pipenv shell
