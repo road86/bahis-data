@@ -4,6 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+psycopg2 = "*"
+ipython = "*"
+shapely = "*"
 pandas = "1.5.3"
 numpy = "1.24.2"
 sqlalchemy = "2.0.8"

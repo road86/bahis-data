@@ -1,12 +1,5 @@
 # BAHIS Data Processing Pipelines
 
-## Data
-Available here: https://drive.google.com/drive/folders/1l5AL2O7nnpnsh73UjqjLYcBotwdthsWs?usp=sharing
-
-## Comment
-I've pulled data from static bahis and had some fun formatting it (all the different forms submissions are in one table with the actual data stored as key:value pairs). I have uploaded the data for you into google drive, those are files in a format `formdata_*.csv`.
-You will notice however that it is not possible to find out what different indexes mean in many cases. I leave that for you to find out as you go through whichever dataset you find most interesting. The tables that contain keys for submitted data are in `input/STATICBAHIS*.csv` files, though at this point I'm not sure what is what.
-
 ##  Setting up the environment for data pipeline for Ubuntu
 
 ###  Install python 3.10 or later versions
@@ -24,3 +17,20 @@ Go inside the bahis-data directory and run the following command to activate the
 
 `pipenv shell`
 
+in order to use correctly server scripts, clone the repository to `/bahis-data` and create a directory `/bahis-data/.venv` so the virtual environment is available in the predictable location for cron jobs.
+
+The following is a cronjob to run:
+```
+0 23 * * * cd /bahis-data/server-scripts/ && sh otter-nightly.sh >> log.txt
+```
+
+## Running pre-processing and downloading
+```
+pipenv shell
+python server-scripts/import_data.py
+python prep_dash/prep_data.py
+python prep_dash/prepgeojson.py
+```
+
+## Known issues
+Despite Pandas being specified as `1.5`, pipenv installs version `'2.0.1'`.

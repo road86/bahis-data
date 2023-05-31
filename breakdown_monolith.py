@@ -2,7 +2,7 @@ import pandas as pd
 import json
 
 #formadata table from static BAHIS (aka V1) database
-static = pd.read_csv('input/static.csv')
+static = pd.read_csv('output/oldbahis_forms_data.csv')
 nodata=len(static)
 
 #column 'form_name' says which form data given row contains
