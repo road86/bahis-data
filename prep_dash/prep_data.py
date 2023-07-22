@@ -95,7 +95,7 @@ bahis_preped_data = bahis_sourcedata[['basic_info_date',
                                         'patient_info_sick_number',
                                         'patient_info_dead_number']]
 
-bahis_preped_data['basic_info_date'] = pd.to_datetime(bahis_preped_data['basic_info_date'])
+bahis_preped_data['basic_info_date'] = pd.to_datetime(bahis_preped_data['basic_info_date'],errors = 'coerce')
 
 bahis_preped_data['basic_info_date'] = bahis_preped_data['basic_info_date'].apply(lambda x: x.date())
 
