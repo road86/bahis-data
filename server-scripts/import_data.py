@@ -5,6 +5,7 @@ import configparser
 import os
 import psycopg2
 import shutil
+import glob
 
 
 os.makedirs('output',exist_ok=True)
@@ -40,6 +41,7 @@ conn.close()
 bahis_connections.dispose()
 
 #HACK
-# pnadas read_sql_table do not correctly reads json columns from postgresql. Temporarily we will just use the file exported manually for old bahis.
-shutil.copyfile('input/oldbahis_forms_data.csv', 'output/oldbahis_forms_data.csv')
-shutil.copyfile('input/oldbahis_fao_species.csv', 'output/oldbahis_fao_species.csv')
+# pandas read_sql_table do not correctly reads json columns from postgresql. Temporarily we will just use the file exported manually for old bahis.
+shutil.copyfile('input/Diseaselist.csv', 'output/Diseaselist.csv') #the google doc of disease list
+shutil.copyfile(glob.glob('input/oldbahis_forms_data*.csv')[-1], 'output/oldbahis_forms_data.csv')
+shutil.copyfile(glob.glob('input/oldbahis_fao_species*.csv')[-1], 'output/oldbahis_fao_species.csv')
