@@ -10,4 +10,5 @@ cd /bahis-data/
 python3 server-scripts/import_data.py
 python3 prep_dash/prepgeojson.py
 python3 prep_dash/prep_data.py
+mkdir -p /bahis-dash/exported_data
 cp -r /bahis-data/output/* /bahis-dash/exported_data/
