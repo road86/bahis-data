@@ -152,9 +152,14 @@ bahis_preped_data= bahis_preped_data[['basic_info_date',
 
 bahis_total= pd.concat([oldbahis_preped_data, bahis_preped_data], ignore_index=True)
 
+lookup_table = pd.read_excel(os.path.join(sourcepath, "bahis_data_lovi_top_diagnosis.xlsx"),sheet_name="Sheet1", header=0)
+
+bahis_total_corrected = bahis_total.replace(dict(zip(lookup_table.Names, lookup_table.Corrected)))
+
+
 bahis_preped_data.to_csv(sourcepath + 'preped_ndata.csv')
 oldbahis_preped_data.to_csv(sourcepath + 'preped_odata.csv')
 
-bahis_total.to_csv(sourcepath + 'preped_data2.csv')
+bahis_total_corrected.to_csv(sourcepath + 'preped_data2.csv')
 
     #bahis_preped_data.to_csv(sourcepath + 'preped_data2.csv')

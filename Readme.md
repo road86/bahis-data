@@ -23,7 +23,17 @@ The following is a cronjob to run:
 ```
 0 23 * * * cd /bahis-data/server-scripts/ && sh otter-nightly.sh >> log.txt
 ```
+## Known missing files
+The following files are needed to run prep_data.py:
+	1. newbahis_bahis_patient_registrydyncsv_live_table.csv;
+	2. newbahis_bahis_species_table.csv;
+	3. newbahis_bahis_diagnosis_table.csv.
+	
+Put the stated files in the "output" folder inside the "prep_dash" folder.
 
+## Lookup table
+The file named "bahis_data_lovi_top_diagnosis.xlsx" contains the lookup table for correcting the spellings of diseases. Put this file in the "output" folder inside the "prep_dash" folder.
+	
 ## Running pre-processing and downloading
 ```
 pipenv shell
