@@ -1,8 +1,13 @@
 import pandas as pd
 import datetime as dt
 import os, json, glob
+import sys
+from loguru import logger
 
-sourcepath = './output/'
+logger.remove()
+logger.add(sys.stderr, level="INFO")
+
+sourcepath = '../output/'
 os.makedirs(sourcepath,exist_ok=True)
 sourcefilename =glob.glob(os.path.join(sourcepath, 'newbahis_bahis_patient_registrydyncsv_live_table*.csv'))[-1]
 bahis_sourcedata = pd.read_csv(sourcefilename, low_memory=False)
@@ -152,14 +157,15 @@ bahis_preped_data= bahis_preped_data[['basic_info_date',
 
 bahis_total= pd.concat([oldbahis_preped_data, bahis_preped_data], ignore_index=True)
 
-lookup_table = pd.read_excel(os.path.join(sourcepath, "bahis_data_lovi_top_diagnosis.xlsx"),sheet_name="Sheet1", header=0)
+lookup_table = pd.read_excel(os.path.join("..", "..", "bahis_data_lovi_top_diagnosis.xlsx"),sheet_name="Sheet1", header=0)
+logger.info("Look-up table loaded")
 
 bahis_total_corrected = bahis_total.replace(dict(zip(lookup_table.Names, lookup_table.Corrected)))
-
+logger.info("Disease names corrected")
 
 bahis_preped_data.to_csv(sourcepath + 'preped_ndata.csv')
 oldbahis_preped_data.to_csv(sourcepath + 'preped_odata.csv')
 
 bahis_total_corrected.to_csv(sourcepath + 'preped_data2.csv')
+logger.info("Corrected database exported as csv")
 
-    #bahis_preped_data.to_csv(sourcepath + 'preped_data2.csv')
