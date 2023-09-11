@@ -157,6 +157,7 @@ bahis_preped_data= bahis_preped_data[['basic_info_date',
 
 bahis_total= pd.concat([oldbahis_preped_data, bahis_preped_data], ignore_index=True)
 
+
 lookup_table = pd.read_excel(os.path.join("..", "bahis_data_lovi_top_diagnosis.xlsx"),sheet_name="Sheet1", header=0)
 logger.info("Look-up table loaded")
 
