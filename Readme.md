@@ -32,7 +32,7 @@ The following files are needed to run prep_data.py:
 Put the stated files in the "output" folder inside the "prep_dash" folder.
 
 ## Lookup table
-The file named "bahis_data_lovi_top_diagnosis.xlsx" contains the lookup table for correcting the spellings of diseases. Put this file in the "output" folder inside the "prep_dash" folder.
+The file named "bahis_data_lovi_top_diagnosis.xlsx" contains the lookup table for correcting the spellings of diseases. Keep this file in the base "bahis-data" folder.
 	
 ## Running pre-processing and downloading
 ```
