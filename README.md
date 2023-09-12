@@ -48,6 +48,10 @@ The following files are needed to run prep_data.py:
 
 Put the stated files in the "output" folder inside the "prep_dash" folder.
 
+## Adding pipeline scripts
+
+Add new pipelines scripts to the `pipeline_scripts` folder. The script should have a `main()` function that is called by `pipeline.py`. The `main()` function should read inputs from the `input` folder and save outputs to the `output` folder. We currently don't have chained pipelines.
+
 ## Lookup tables
 
 The file named "bahis_data_lovi_top_diagnosis.xlsx" contains the lookup table for correcting the spellings of diseases. Put this file in the "lookup" folder.
