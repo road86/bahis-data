@@ -26,7 +26,7 @@ This will run a development server with hot reloading and other useful features.
 
 ## Deployment
 
-To run the system in a local "deployment" you can use the Dockerfile with `docker build -t data . && docker run -p 80:80 -name bahis-data data:latest`. Note this will fail if `bahis_creds_file.cnf` is not valid, i.e. points to a local postgreSQL instance. You will also need to make sure the backup sql file is in the `input` directory.
+To run the system in a local "deployment" you can use the Dockerfile with `docker build -t data . && docker run -p 80:80 --name bahis-data data:latest`. Note this will fail if `bahis_creds_file.cnf` is not valid, i.e. points to a local postgreSQL instance. You will also need to make sure the backup sql file is in the `input` directory.
 
 Cloud deployment is done (currently manually) using bahis-infra. Only the latest release will be deployed - releases are created automatically when a PR is successfully merged into `main`.
 
@@ -44,9 +44,10 @@ The following files are needed to run prep_data.py:
 
 1. newbahis_bahis_patient_registrydyncsv_live_table.csv;
 2. newbahis_bahis_species_table.csv;
-3. newbahis_bahis_diagnosis_table.csv.
+3. newbahis_bahis_diagnosis_table.csv;
+4. newbahis_geo_cluster.csv.
 
-Put the stated files in the "output" folder inside the "prep_dash" folder.
+Put the stated files in the "output" folder.
 
 ## Adding pipeline scripts
 
