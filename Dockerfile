@@ -18,6 +18,4 @@ COPY . ./
 RUN (echo "0,5,10,15,20,25,30,35,40,45,50,55  * * * * cd /home/app/server_scripts && sh ./nightly.sh >> log.txt") | crontab -
 
 # Start cron in the foreground
-# CMD cron -f
-WORKDIR /home/app/server_scripts
-CMD sh ./nightly.sh
+CMD cron -f
