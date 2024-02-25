@@ -15,7 +15,8 @@ ENV PATH=/home/app/.venv/bin:${PATH}
 COPY . ./
 
 # Add crontab entry. The following schedules the script to run daily at midnight.
-RUN (echo "0 23 * * * cd /home/app/server_scripts && sh ./nightly.sh >> log.txt") | crontab -
+RUN (echo "10 2 * * * /home/app/server_scripts/nightly.sh >> /home/app/server_scripts/log.txt 2>&1") | crontab -
 
 # Start cron in the foreground
 CMD cron -f
+CMD touch /home/app/server_scripts/log.txt
