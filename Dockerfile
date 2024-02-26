@@ -17,6 +17,7 @@ COPY . ./
 # Add crontab entry. The following schedules the script to run daily at midnight.
 RUN (echo "10 2 * * * /home/app/server_scripts/nightly.sh >> /home/app/server_scripts/log.txt 2>&1") | crontab -
 
+RUN touch /home/app/server_scripts/log.txt
+
 # Start cron in the foreground
 CMD cron -f
-CMD touch /home/app/server_scripts/log.txt
